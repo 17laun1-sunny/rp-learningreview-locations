@@ -5,21 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Select Location | Preface</title>
     <style>
-        /* --- PREFACE INSPIRED THEME --- */
+        /* --- THEME SETUP --- */
         :root {
             --preface-red: #E30613;
             --text-black: #111111;
             --text-grey: #666666;
-            --bg-white: #FFFFFF;
-            --bg-overlay: rgba(255, 255, 255, 0.92); /* White overlay to make text readable */
             --font-main: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
 
         body {
             font-family: var(--font-main);
@@ -30,8 +24,7 @@
             min-height: 100vh;
             padding: 20px;
             
-            /* --- BACKGROUND IMAGE SETUP --- */
-            /* This expects a file named 'background.jpg' or 'background.png' in the same folder */
+            /* Background Image Setup */
             background-image: url('background.png'); 
             background-size: cover;
             background-position: center;
@@ -39,131 +32,128 @@
             background-attachment: fixed;
         }
 
-        /* Main Container */
+        /* --- CONTAINER STYLE (Now Wider) --- */
         .container {
-            width: 100%;
-            max-width: 480px;
+            width: 95%; /* Takes up most width on mobile */
+            max-width: 600px; /* Increased from 480px for Desktop/Mac */
+            background-color: rgba(255, 255, 255, 0.95); /* Slightly more opaque */
+            padding: 50px 40px; /* More breathing room */
+            border-radius: 24px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            backdrop-filter: blur(8px);
             text-align: center;
-            /* White card background to ensure readability over your background image */
-            background-color: var(--bg-overlay);
-            padding: 40px 30px;
-            border-radius: 20px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-            backdrop-filter: blur(5px); /* Nice blur effect behind the card */
         }
 
-        /* Header / Logo Section */
+        /* --- HEADER & LOGO (Now Bigger) --- */
         .header {
-            margin-bottom: 35px;
+            margin-bottom: 40px;
         }
 
         .logo-img {
-            max-width: 180px; /* Adjust size of your logo here */
+            max-width: 260px; /* Increased size */
+            width: 100%; /* Responsive scaling */
             height: auto;
-            margin-bottom: 12px;
+            margin-bottom: 15px;
             display: block;
             margin-left: auto;
             margin-right: auto;
         }
 
         .subtitle {
-            font-size: 14px;
+            font-size: 15px;
             color: var(--text-grey);
             font-weight: 400;
         }
 
-        /* Search & Dropdown Wrapper */
+        /* --- SEARCH BAR --- */
         .search-wrapper {
             position: relative;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
 
-        /* The Input Field */
         .search-input {
             width: 100%;
-            padding: 16px 20px;
-            font-size: 16px;
+            padding: 18px 24px;
+            font-size: 17px;
             border: 1px solid #E0E0E0;
-            border-radius: 12px;
+            border-radius: 14px;
             background-color: #FFFFFF;
             outline: none;
             transition: all 0.2s ease;
             font-family: var(--font-main);
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23666" viewBox="0 0 16 16"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/></svg>');
+            /* Search Icon */
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="%23666" viewBox="0 0 16 16"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/></svg>');
             background-repeat: no-repeat;
             background-position: 95% center;
         }
 
         .search-input:focus {
             border-color: var(--preface-red);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 4px 15px rgba(227, 6, 19, 0.1);
         }
 
-        /* The Dropdown List */
+        /* --- LOCATION LIST --- */
         .location-list {
             display: none;
             position: absolute;
             top: 100%;
             left: 0;
             right: 0;
-            margin-top: 8px;
+            margin-top: 10px;
             background: white;
             border: 1px solid #E0E0E0;
-            border-radius: 12px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            max-height: 280px;
+            border-radius: 14px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.12);
+            max-height: 320px;
             overflow-y: auto;
             z-index: 100;
             text-align: left;
         }
 
-        .location-list.active {
-            display: block;
-        }
+        .location-list.active { display: block; }
 
         .location-item {
-            padding: 14px 20px;
+            padding: 16px 24px;
             cursor: pointer;
-            border-bottom: 1px solid #f0f0f0;
-            font-size: 15px;
+            border-bottom: 1px solid #f5f5f5;
+            font-size: 16px;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
-        .location-item:last-child {
-            border-bottom: none;
-        }
+        .location-item:last-child { border-bottom: none; }
 
         .location-item:hover {
-            background-color: #F9F9F9;
+            background-color: #FAFAFA;
             color: var(--preface-red);
             font-weight: 500;
         }
         
-        /* Style for disabled items (like Sai Ying Pun) */
+        /* Disabled Item Style */
         .location-item.disabled {
             color: #aaa;
             cursor: default;
             background-color: #fff;
         }
-        .location-item.disabled:hover {
-            background-color: #fff;
-            color: #aaa;
-            font-weight: normal;
-        }
+        .location-item.disabled:hover { background-color: #fff; color: #aaa; }
 
         .no-results {
-            padding: 15px;
+            padding: 20px;
             color: var(--text-grey);
-            font-size: 14px;
             text-align: center;
         }
 
         .footer {
-            margin-top: 30px;
+            margin-top: 40px;
             font-size: 12px;
-            color: #999;
+            color: #AAA;
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 480px) {
+            .container { padding: 30px 20px; }
+            .logo-img { max-width: 220px; }
         }
     </style>
 </head>
@@ -171,12 +161,7 @@
 
     <div class="container">
         <div class="header">
-            <img src="logo.png" alt="Preface" class="logo-img" onerror="this.style.display='none'; document.getElementById('backup-logo').style.display='block';">
-            
-            <div id="backup-logo" style="display:none; font-weight:700; font-size:28px; margin-bottom:10px;">
-                PREFACE<span style="color:#E30613">.</span>
-            </div>
-
+            <img src="logo.png" alt="Preface" class="logo-img">
             <p class="subtitle">Select your location to continue</p>
         </div>
 
@@ -191,7 +176,7 @@
     </div>
 
     <script>
-        // --- DATA FROM YOUR CSV FILE ---
+        // --- DATA ---
         const locations = [
             { name: "Causeway Bay HQ", url: "https://calendar.app.google/yG5NWzJq29Xz4uRW9" },
             { name: "Central",         url: "https://wa.link/yayjw3" },
@@ -200,7 +185,7 @@
             { name: "Whampoa",         url: "https://calendar.app.google/7c5eurMZ8q8PLgzv7" },
             { name: "Olympic",         url: "https://wa.link/ctk9qx" },
             { name: "Shek Mun",        url: "https://wa.link/xrsr36" },
-            { name: "Sai Ying Pun",    url: "" }, // Empty URL in CSV
+            { name: "Sai Ying Pun",    url: "" },
             { name: "Macau",           url: "https://wa.link/acu0qr" }
         ];
 
@@ -220,39 +205,26 @@
 
             items.forEach(loc => {
                 const div = document.createElement('div');
-                div.textContent = loc.name;
-                
-                // Handle empty links (like Sai Ying Pun)
                 if (!loc.url || loc.url.trim() === "") {
                     div.className = 'location-item disabled';
-                    const tag = document.createElement('span');
-                    tag.style.fontSize = '12px';
-                    tag.textContent = '(Coming Soon)';
-                    div.appendChild(tag);
+                    div.innerHTML = `${loc.name} <span style="font-size:12px; opacity:0.7">(Coming Soon)</span>`;
                 } else {
                     div.className = 'location-item';
-                    div.onclick = () => {
-                        window.location.href = loc.url; 
-                    };
+                    div.textContent = loc.name;
+                    div.onclick = () => { window.location.href = loc.url; };
                 }
-                
                 locationList.appendChild(div);
             });
         }
 
         renderList(locations);
-
         searchInput.addEventListener('focus', () => locationList.classList.add('active'));
-
         searchInput.addEventListener('input', (e) => {
             const query = e.target.value.toLowerCase();
-            const filtered = locations.filter(loc => 
-                loc.name.toLowerCase().includes(query)
-            );
+            const filtered = locations.filter(loc => loc.name.toLowerCase().includes(query));
             renderList(filtered);
             locationList.classList.add('active');
         });
-
         document.addEventListener('click', (e) => {
             if (!searchInput.contains(e.target) && !locationList.contains(e.target)) {
                 locationList.classList.remove('active');
