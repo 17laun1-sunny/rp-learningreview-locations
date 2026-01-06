@@ -7,7 +7,7 @@
     <style>
         /* --- THEME SETUP --- */
         :root {
-            --preface-red: #4988C4;
+            --preface-blue: #4988C4; 
             --text-black: #111111;
             --text-grey: #666666;
             --font-main: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -32,26 +32,26 @@
             background-attachment: fixed;
         }
 
-        /* --- CONTAINER STYLE (Now Wider) --- */
+        /* --- CONTAINER STYLE --- */
         .container {
-            width: 95%; /* Takes up most width on mobile */
-            max-width: 600px; /* Increased from 480px for Desktop/Mac */
-            background-color: rgba(255, 255, 255, 0.95); /* Slightly more opaque */
-            padding: 50px 40px; /* More breathing room */
+            width: 95%; 
+            max-width: 600px;
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 50px 40px;
             border-radius: 24px;
             box-shadow: 0 20px 40px rgba(0,0,0,0.15);
             backdrop-filter: blur(8px);
             text-align: center;
         }
 
-        /* --- HEADER & LOGO (Now Bigger) --- */
+        /* --- HEADER & LOGO --- */
         .header {
             margin-bottom: 40px;
         }
 
         .logo-img {
-            max-width: 260px; /* Increased size */
-            width: 100%; /* Responsive scaling */
+            max-width: 260px;
+            width: 100%;
             height: auto;
             margin-bottom: 15px;
             display: block;
@@ -81,15 +81,14 @@
             outline: none;
             transition: all 0.2s ease;
             font-family: var(--font-main);
-            /* Search Icon */
             background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="%23666" viewBox="0 0 16 16"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/></svg>');
             background-repeat: no-repeat;
             background-position: 95% center;
         }
 
         .search-input:focus {
-            border-color: var(--preface-red);
-            box-shadow: 0 4px 15px rgba(227, 6, 19, 0.1);
+            border-color: var(--preface-blue);
+            box-shadow: 0 4px 15px rgba(73, 136, 196, 0.2);
         }
 
         /* --- LOCATION LIST --- */
@@ -126,7 +125,7 @@
 
         .location-item:hover {
             background-color: #FAFAFA;
-            color: var(--preface-red);
+            color: var(--preface-blue);
             font-weight: 500;
         }
         
@@ -148,12 +147,7 @@
             margin-top: 40px;
             font-size: 12px;
             color: #AAA;
-        }
-
-        /* Mobile Adjustments */
-        @media (max-width: 480px) {
-            .container { padding: 30px 20px; }
-            .logo-img { max-width: 220px; }
+            line-height: 1.6; /* Adds a little space between the two lines */
         }
     </style>
 </head>
@@ -171,7 +165,8 @@
         </div>
 
         <div class="footer">
-            © Preface. All rights reserved.
+            <div>© Preface. All rights reserved.</div>
+            <div style="font-size: 11px; opacity: 0.8;">Short courses & AI Literacy courses</div>
         </div>
     </div>
 
@@ -185,7 +180,7 @@
             { name: "Whampoa",         url: "https://calendar.app.google/7c5eurMZ8q8PLgzv7" },
             { name: "Olympic",         url: "https://wa.link/ctk9qx" },
             { name: "Shek Mun",        url: "https://wa.link/xrsr36" },
-            { name: "Sai Ying Pun",    url: "" },
+            { name: "Sai Ying Pun",    url: "https://wa.link/qputda" },
             { name: "Macau",           url: "https://wa.link/acu0qr" }
         ];
 
